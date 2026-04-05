@@ -1,0 +1,57 @@
+// ============================================
+// adminFrontend/src/context/AuthContext.jsx
+// ============================================
+import React, { createContext, useState, useContext, useEffect } from 'react';
+
+const AuthContext = createContext();
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within AuthProvider');
+  }
+  return context;
+};
+
+export const AuthProvider = ({ children }) => {
+  const [admin, setAdmin] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('adminToken'));
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if token exists in localStorage
+    const storedToken = localStorage.getItem('adminToken');
+    const storedAdmin = localStorage.getItem('adminData');
+    
+    if (storedToken && storedAdmin) {
+      setToken(storedToken);
+      setAdmin(JSON.parse(storedAdmin));
+    }
+    setLoading(false);
+  }, []);
+
+  const login = (adminData, authToken) => {
+    setAdmin(adminData);
+    setToken(authToken);
+    localStorage.setItem('adminToken', authToken);
+    localStorage.setItem('adminData', JSON.stringify(adminData));
+  };
+
+  const logout = () => {
+    setAdmin(null);
+    setToken(null);
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminData');
+  };
+
+  const value = {
+    admin,
+    token,
+    login,
+    logout,
+    isAuthenticated: !!token,
+    loading
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};

@@ -1,0 +1,88 @@
+
+/* ============================================
+// adminFrontend/src/components/Navbar.css
+// ============================================
+*/
+.navbar {
+  background: linear-gradient(135deg, #1E40AF 0%, #2563EB 100%);
+  padding: 18px 0;
+  box-shadow: 0 4px 20px rgba(30, 64, 175, 0.15);
+  position: relative;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3B82F6, #60A5FA, #3B82F6);
+}
+
+.navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-icon {
+  font-size: 28px;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn {
+  background: white;
+  color: #1E40AF;
+  border: 2px solid white;
+  padding: 10px 30px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background: #EFF6FF;
+  color: #1E3A8A;
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 0 20px;
+  }
+
+  .navbar-title {
+    font-size: 18px;
+  }
+
+  .logout-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,71 @@
+
+/* ============================================
+// adminFrontend/src/components/TabMenu.css
+// ============================================
+*/
+.tab-menu {
+  background: white;
+  border-bottom: 2px solid #E5E7EB;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab-menu-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  gap: 0;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  padding: 18px 30px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #2563EB;
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.tab-button.active {
+  color: #1E40AF;
+  border-bottom-color: #2563EB;
+  background: linear-gradient(to bottom, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.05));
+  font-weight: 700;
+}
+
+.tab-icon {
+  font-size: 18px;
+}
+
+.tab-label {
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .tab-menu-content {
+    padding: 0 15px;
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    padding: 15px 20px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .tab-icon {
+    font-size: 16px;
+  }
+}
